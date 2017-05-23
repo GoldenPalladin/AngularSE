@@ -1,0 +1,61 @@
+---
+- name: I create non-empty scope "scopeName" with deliverable "deliverableName"
+  uid: 990c93ca-a2d9-4ba3-8dc8-1a3bd7f33814
+  parameters:
+  - name: scopeName
+  - name: deliverableName
+  body_hash: 0e41a179f8f35734a32a0db22e7bd3d4
+- name: scope "scopeName" should be created
+  uid: e8270da7-bffc-478d-9f8d-f2641abebc3c
+  parameters:
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: 'I open scope "scopeName" '
+  uid: 4b8b466d-6cba-433f-8d8e-7ff17dbf0645
+  parameters:
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I submit scope
+  uid: ce03b966-c8e7-4f9c-882f-3d5bf7821a04
+  parameters: []
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: scope "scopeName" should be submitted
+  uid: 00fde2f2-3fa2-40e6-ba11-050cc2863597
+  parameters:
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: client "clientName" should be created
+  uid: ae123b1e-80e8-4794-8a03-2874325f842d
+  parameters:
+  - name: clientName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I create empty scope "scopeName"
+  uid: dcf94f9a-cdbd-4cfd-bddd-c0f3872865ff
+  parameters:
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: empty scope "scopeName" should be created
+  uid: 8c568672-1b83-4dc9-8840-f9832d668aa8
+  parameters:
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I add deliverable "deliverableName"
+  uid: 91a3409f-cde3-46cb-bb96-f8997a387aeb
+  parameters:
+  - name: deliverableName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: deliverable "deliverableName" should be added to the scope "scopeName"
+  uid: c80aab2e-56ff-417a-bf13-23161ef59f0f
+  parameters:
+  - name: deliverableName
+  - name: scopeName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I login as "UserName"
+  uid: a3872f32-1144-4495-820c-2887a956d713
+  parameters:
+  - name: UserName
+  body_hash: d41d8cd98f00b204e9800998ecf8427e
+- name: I should see scopes list
+  uid: 73cc499e-343b-49cb-93ca-975c800afacb
+  parameters: []
+  body_hash: d41d8cd98f00b204e9800998ecf8427e

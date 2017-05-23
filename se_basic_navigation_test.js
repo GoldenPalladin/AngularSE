@@ -13,3 +13,21 @@ I.click('Sign in');
 I.amInsideAngularApp();
 I.see('My Scopes');
 });
+
+Scenario('Top navigate', (I)=>{
+  I.click('Library');
+
+
+
+  I.see('Scope items');
+  I.see('Deliverable items');
+  I.see('Component items');
+  I.moveTo('/manage');
+  I.see('Agency details');
+  I.see('Integration settings');
+  I.see('Clients');
+  I.see("Rate Cards");
+  I.see('Members');
+  I.see('Groups');
+  I.see('Output');
+});

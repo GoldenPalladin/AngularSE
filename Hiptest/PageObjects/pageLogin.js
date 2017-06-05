@@ -1,9 +1,10 @@
-function login() {
-  browser.get("http://scope.expert");
-  element(by.model("user.username")).sendKeys("py.scope.expert@gmail.com");
-  element(by.model("user.password")).sendKeys("Xqp6Ghcry");
+function login(email, password) {
+  var env = require('./environment.js');
+  browser.driver.get(env.baseUrl+'/login');
+  element(by.model("user.username")).sendKeys(email);
+  element(by.model("user.password")).sendKeys(password);
   element(by.buttonText('Sign in')).click();
   browser.wait(isElementPresent(element(by.linkText('My Scopes'))), 10);
 }
 
-exports.login=login;
+exports.login=login(email, password);

@@ -3,38 +3,66 @@ exports.Actionwords = {
     this.iCreateEmptyScopeScopeName(scope_name);
     this.iAddDeliverableDeliverableName(deliverable_name);
   },
-  scopeScopeNameShouldBeCreated: function (scope_name) {
 
-  },
   iOpenScopeScopeName: function (scope_name) {
+    const scopes = require('PageObjects/pageMyScopes');
+    let scopeDetails = scopes.openScopeDetails(scope_name);
+    expect(scopeDetails).to.be.true;
+  },
+  scopeShouldBeNonZero: function (scope_name) {
+    const scopes = require('PageObjects/pageMyScopes');
+    let scopeValue = scopes.getScopeValue(scope_name);
+    expect(scopeValue).to.be.above(0);
+  },
+  scopeShouldBeDraft: function (scope_name) {
+    const scopes = require('PageObjects/pageMyScopes');
+    let scopeStatus = scopes.getScopeStatus(scope_name);
+    expect(scopeStatus).to.be.equal('draft');
+  },
+  iSubmitScope: function (scope_name) {
+    const scopeDetails = require('PageObjects/pageScopeDetails');
+    this.iOpenScopeScopeName(scope_name);
+    scopeDetails.submitScope();
+
 
   },
-  iSubmitScope: function () {
+  scopeShouldBeSubmitted: function (scope_name) {
+    const scopes = require('PageObjects/pageMyScopes');
+    let scopeStatus = scopes.getScopeStatus(scope_name);
+    expect(scopeStatus).to.be.equal('submitted');
+  },
+  clientShouldBeCreated: function (client_name) {
+    const client = require('PageObjects/Manage/pageClients');
+    expect(client.findClientByName(client_name)).to.exist;
 
   },
-  scopeScopeNameShouldBeSubmitted: function (scope_name) {
-
-  },
-  clientClientNameShouldBeCreated: function (client_name) {
-
-  },
-  iCreateEmptyScopeScopeName: function (scope_name) {
+  iCreateEmptyScopeScopeName: function (scope_name, client_name) {
+    this.clientClientNameShouldBeCreated(client_name);
+    const scopes = require('PageObjects/pageMyScopes');
+    expect(scopes.createScope(scope_name, client_name)).to.be.true;
 
   },
   emptyScopeScopeNameShouldBeCreated: function (scope_name) {
+    this.iShouldSeeScopeNamed(scope_name);
+  },
+  iAddDeliverableDeliverableName: function (scope_name, deliverable_name) {
+    this.scopeShouldBeDraft(scope_name);
+    this.iOpenScopeScopeName(scope_name);
+    const scopeDetails = require('PageObjects/pageScopeDetails');
+    scopeDetails.addDeliverable(deliverable_name);
 
   },
-  iAddDeliverableDeliverableName: function (deliverable_name) {
-
-  },
-  deliverableDeliverableNameShouldBeAddedToTheScopeScopeName: function (deliverable_name, scope_name) {
+  deliverableShouldBeAddedToTheScope: function (deliverable_name, scope_name) {
 
   },
   iLoginAsUserName: function (user_name) {
-    var poLoginPage = require
+    const pageLogin = require('PageObjects/pageLogin');
+    let creds = user_name.split('|');
+    pageLogin.login(creds[0], creds[1]);
 
   },
-  iShouldSeeScopesList: function () {
-
+  iShouldSeeScopeNamed: function (scope_name) {
+    const scopes = require('PageObjects/pageMyScopes');
+    expect(scopes.findScopeInListByName(scope_name)).to.exist;;
   }
 };

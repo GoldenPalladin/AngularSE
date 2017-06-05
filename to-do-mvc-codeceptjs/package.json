@@ -1,0 +1,15 @@
+{
+  "name": "acceptance-testing-with-codeceptjs",
+  "version": "1.0.0",
+  "description": "Sample testing suite to learn testing",
+  "main": "index.js",
+  "repository": "https://github.com/GoldenPalladin/AngularSE",
+  "author": "Pavel Yakovlev",
+  "license": "MIT",
+  "scripts": {"test": "codeceptjs run . --steps"},
+  "devDependencies": {
+    "codeceptjs": "^0.6.3-pre",
+    "nightmare": "^2.10.0",
+    "nightmare-upload": "^0.1.1"
+  }
+}
